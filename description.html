@@ -1,0 +1,17 @@
+{% extends "matematika/base.html" %}
+{% load static %}
+
+{% block title %}{{ description.title|safe }}{% endblock %}
+
+
+{% block content %}
+    {% autoescape on %}
+    <hr>
+      <p style="text-align:center;"><strong>{{ description.title|safe }}</strong></p>
+    <hr>
+      {% if description.image %}
+        <img src="{{ description.image.url }}"  style="float:right;width:250px;height:250px">
+      {% endif %}
+      {{description.description|safe|linebreaks}}
+    {% endautoescape %}
+{% endblock %}

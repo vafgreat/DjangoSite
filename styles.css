@@ -1,0 +1,62 @@
+body {
+  font-family: Arial;
+  background-color: white;
+
+}
+
+h1 {
+  color: #910000;
+  text-align: center;
+  font-style: italic;
+  background-color: #edbe9d;
+}
+
+p {
+  #;
+}
+
+}
+li {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.menu_titles{
+  font-size: 1.8rem;
+}
+
+.menu {
+  background-color: rgba(12, 200, 15, 0.3);
+  float:left;
+  font-size: 1rem;
+  width: 220px;
+  height: 100vh;
+  padding-right: 5px;
+}
+
+.menu a:link, a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 1px 2px;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.menu a:hover, a:active {
+    background-color: red;
+}
+
+.submenu li{
+  display: block;
+}
+
+.description {
+  font-size: 1.8rem;
+  margin-left: 250px;
+}
+
+
+/* .menu a:hover .submenu{
+    display: block;
+} */

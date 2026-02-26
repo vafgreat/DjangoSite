@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'matematika/images/main_ico.png' %}">
+    <link rel="stylesheet" href="{% static 'matematika/css/styles.css' %}">
+</head>
+<body>
+    <a href="{% url 'matematika:index' %}" style="background-color: none;
+        color: white;
+        padding: 0px 0px;
+        text-align: left;
+        text-decoration: none;
+        width: 100%;">
+    <img src="{% static 'matematika/images/head_image.jpg' %}" alt="Head image" style="width:100%; height:250px">
+    </a>
+    <hr>
+    <h1>Mathēma(tos) (µάθηµα, µάθηµατος) “learning, knowledge”, more specifically “mathematics.”</h1>
+    <hr>
+    <div class="menu">
+    <ul>
+        <p>СПИСОК:</p>
+      {% if descriptions %}
+      {% for category in categories %}
+      <li class="menu_titles"><a href="#">{{ category.title|safe }}</a></li>
+        <li><ul class="submenu">
+        {% for description in descriptions %}
+          {% if description.category_id == category.pk %}
+          {% autoescape on %}
+            <li><a title="{{ description.title }}"  target="_self" href="{% url 'matematika:description' description.id %}">{{ description.title|safe }}</a></li>
+          {% endautoescape %}
+          {% endif %}
+        {% endfor %}
+        </ul>
+      {% endfor %}
+      </li>
+    </ul>
+    </div>
+    <div style="height: 100vh; width: 0; border-left: 3px solid #000; float:left"></div>
+
+
+{% else %}
+    <p>No descriptions are available at this URL.</p>
+{% endif %}
+<div class="description">
+  {% block content %}
+  {% endblock %}
+</div>
+
+<a href="http://www.freepik.com">Designed by rawpixel.com / Freepik</a>
+
+</body>
+</html>
